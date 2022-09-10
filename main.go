@@ -31,6 +31,7 @@ func main() {
 	r.Use(ginzap.RecoveryWithZap(logger, true))
 
 	r.GET("/ping", func(c *gin.Context) {
+		logger.Info("/ping method info")
 		c.JSON(200, gin.H{
 			"message": "pong",
 		})
